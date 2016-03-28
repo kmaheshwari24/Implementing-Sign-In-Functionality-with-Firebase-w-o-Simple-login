@@ -27,19 +27,26 @@ $scope.SignIn = function() {
 			console.log("Login Failed!",error);
 		} else {
 			console.log("Authenticated Successfully with Payload", authData);
+			CommonProp.setUser(username)
 			$scope.$apply(function() { 
 				$location.path("/welcome"); 
 			});
 		}
 	});
 
-}
+};
 
+// Set value of user as email id
+
+
+
+
+}])
 
 // Service to access common data
 
 .service('CommonProp', function(){
-	var user = "";
+	var user = " ";
 
 	return {
 		getUser: function(){
@@ -49,13 +56,7 @@ $scope.SignIn = function() {
 			user = value;
 		}	
 
-		};
+	};
 
-	});
+});
 
-// Set value of user as email id
-
-CommonProp.setUser(user.password.email);
-
-
-}]);
