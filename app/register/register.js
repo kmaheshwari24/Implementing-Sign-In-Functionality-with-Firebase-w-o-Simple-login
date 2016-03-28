@@ -24,7 +24,7 @@ angular.module('myApp.register',['ngRoute', 'firebase'])
 		var email = $scope.user.email;
  		var password = $scope.user.password;	
 
-		//	if (email && password) {
+			if (email && password) {
 				auth.$createUser({email, password})
 					.then(function() {
   						console.log("Successfully created user account");
@@ -34,7 +34,7 @@ angular.module('myApp.register',['ngRoute', 'firebase'])
     					$scope.regError = true;
     					$scope.regErrorMessage = error.message;
   					});		
-  		//	}
+  			}
   		}
 
 	};
