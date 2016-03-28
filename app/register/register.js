@@ -12,9 +12,10 @@ angular.module('myApp.register',['ngRoute', 'firebase'])
 
 // Register Controller
 
-.controller('RegisterCtrl', ['$scope', function($scope){
+.controller('RegisterCtrl', ['$scope', '$location', function($scope, $location){
 		
-	$scope.signUp = function(){
+	$scope.signUp = function(event){
+		event.preventDefault();
 		if(!$scope.regForm.$invalid){
 			console.log("Valid for submission");
 		}
@@ -29,8 +30,11 @@ angular.module('myApp.register',['ngRoute', 'firebase'])
 			}, function(error, userData) {
   				if (error) {
     				console.log("Error creating user:", error);
+    				$scope.regError = true;
+    				$scope.regErrorMessage = error.message;
   				} else {
     				console.log("Successfully created user account with uid:", userData.uid);
+    				$location.path('/home');
   			}
 		});
 

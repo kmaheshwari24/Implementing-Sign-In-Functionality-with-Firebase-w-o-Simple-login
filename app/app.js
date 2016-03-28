@@ -9,7 +9,7 @@ config(['$routeProvider', function($routeProvider) {
   // set default view of our app to home
 
   $routeProvider.otherwise({
-  	redirctTo: '/home'
+  	redirctTo: '/home/'
   });
 
 }]);
