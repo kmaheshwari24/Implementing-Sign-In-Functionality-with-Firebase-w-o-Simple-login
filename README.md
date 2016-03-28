@@ -1,4 +1,10 @@
-# angular-seed — the seed for AngularJS apps
+# Sign-In functionality with Firebase w/o Simple Login
+  - using firebase for back-end
+  - using angular-seed for front end
+  - Sign-in functionality implementation script in home directory
+
+## Below is documentation from angular-seed
+angular-seed — the seed for AngularJS apps
 
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 You can use it to quickly bootstrap your angular webapp projects and dev environment for these
