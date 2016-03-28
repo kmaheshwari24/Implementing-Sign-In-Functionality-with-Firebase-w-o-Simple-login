@@ -11,10 +11,10 @@ angular.module('myApp.home', ['ngRoute','firebase'])
 }])
 
 // Home controller
-.controller('HomeCtrl', ['$scope', function($scope) {
+.controller('HomeCtrl', ['$scope', '$location', 'CommonProp', function($scope, $location, CommonProp) {
 
-$scope.SignIn = function(event) {
- 	event.preventDefault();
+$scope.SignIn = function() {
+ 	
  	var username = $scope.user.email;
  	var password = $scope.user.password;
  	var ref = new Firebase("https://blazing-heat-8641.firebaseio.com");
@@ -27,10 +27,35 @@ $scope.SignIn = function(event) {
 			console.log("Login Failed!",error);
 		} else {
 			console.log("Authenticated Successfully with Payload", authData);
+			$scope.$apply(function() { 
+				$location.path("/welcome"); 
+			});
 		}
 	});
 
 }
-	// Register the callback to be fired every time auth state changes
+
+
+// Service to access common data
+
+.service('CommonProp', function(){
+	var user = "";
+
+	return {
+		getUser: function(){
+			return user;
+		},
+		setUser: function(value){
+			user = value;
+		}	
+
+		};
+
+	});
+
+// Set value of user as email id
+
+CommonProp.setUser(user.password.email);
+
 
 }]);

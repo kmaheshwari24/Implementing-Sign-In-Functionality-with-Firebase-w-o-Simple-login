@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp', [
-  'ngRoute', 'myApp.home', 'myApp.register'
+  'ngRoute', 'myApp.home', 'myApp.register', 'myApp.welcome'
 ]).
 config(['$routeProvider', function($routeProvider) {
   // routes will be here
