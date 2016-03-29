@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.welcome', ['ngRoute'])
+angular.module('myApp.welcome', ['ngRoute', 'firebase'])
 
 // Declared route
 .config(['$routeProvider', function($routeProvider) {
@@ -11,8 +11,12 @@ angular.module('myApp.welcome', ['ngRoute'])
 }])
 
 // Home controller
-.controller('WelcomeCtrl', ['$scope', 'CommonProp', function($scope, CommonProp) {
+.controller('WelcomeCtrl', ['$scope', 'CommonProp', '$firebaseArray', function($scope, CommonProp, $firebaseArray) {
 
 $scope.username = CommonProp.getUser();
+
+var sync = new Firebase("https://blazing-heat-8641.firebaseio.com/Articles/posts");
+$scope.articles = $firebaseArray(sync);
+
 
 }]);
