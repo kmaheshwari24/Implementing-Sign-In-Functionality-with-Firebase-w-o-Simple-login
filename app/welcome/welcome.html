@@ -33,7 +33,7 @@
 
                 <span class="pull-right">
                     <button class="btn btn-xs btn-info" ng-click="editPost(article.$id)" data-target="#editModal">Edit</button>
-                    <button class="btn btn-xs btn-warning">Delete</button>
+                    <button class="btn btn-xs btn-warning" ng-click="confirmDelete(article.$id)" data-target="#deleteModal">Delete</button>
                 </span>
 
             </a>
@@ -77,6 +77,31 @@
     </div>
     </div>
 
+
+    <!-- Model for Delete Post -->
+
+ 
+<div class="modal fade" id="deleteModal" role="dialog" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="text-align: center;">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" style="color: red; id="deleteModalLabel>You are about to delete this post forever.</h4>
+      </div>
+      <div class="modal-body" style="text-align: center">
+        <p>Are you sure?</p>
+        <p>Changes are permanent and the post cannot be recovered back.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" ng-click="deletePost()">Delete</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
 </body>

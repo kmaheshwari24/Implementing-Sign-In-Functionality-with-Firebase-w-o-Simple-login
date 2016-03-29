@@ -47,5 +47,28 @@ $scope.update = function(){
 		});
 };
 
+// ConfirmDelete function to caputure the Post ID to delete and open the delete modal
+	$scope.confirmDelete = function(id){
+	var deleteContent = new Firebase("https://blazing-heat-8641.firebaseio.com/Articles/posts/" + id);
+	$scope.postToDelete = $firebaseObject(deleteContent);
+	$("#deleteModal").modal(); //triggers the modal pop up
+};
+
+$scope.deletePost = function() {
+	var fdelete = new Firebase("https://blazing-heat-8641.firebaseio.com/Articles/posts/" + $scope.postToDelete.$id);
+	
+	var onComplete = function(error) {
+  		if (error) {
+    		console.log('Synchronization failed');
+  		} else {
+    		$('#deleteModal').modal('hide');
+    	//	console.log('Synchronization succeeded');
+  		}
+	};
+
+	fdelete.remove(onComplete);
+
+};
+
 
 }]);
