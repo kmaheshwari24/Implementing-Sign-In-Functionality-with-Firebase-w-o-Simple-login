@@ -32,7 +32,7 @@
                 <p class="list-group-item-text">{{article.post}}</p>
 
                 <span class="pull-right">
-                    <button class="btn btn-xs btn-info" data-target="#editModal" ng-click="editPost(article.$id)">Edit</button>
+                    <button class="btn btn-xs btn-info" ng-click="editPost(article.$id)" data-target="#editModal">Edit</button>
                     <button class="btn btn-xs btn-warning">Delete</button>
                 </span>
 
@@ -71,7 +71,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Publish</button>
+                <button type="button" class="btn btn-primary" ng-click="update()">Publish</button>
             </div>
         </div>
     </div>
