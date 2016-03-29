@@ -16,5 +16,7 @@ config(['$routeProvider', function($routeProvider) {
   	redirctTo: '/home/'
   });
 
-}]);
+}])
+
+
 

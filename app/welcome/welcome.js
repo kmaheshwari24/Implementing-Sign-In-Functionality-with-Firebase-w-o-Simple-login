@@ -16,7 +16,9 @@ angular.module('myApp.welcome', ['ngRoute', 'firebase'])
 $scope.username = CommonProp.getUser();
 
 var sync = new Firebase("https://blazing-heat-8641.firebaseio.com/Articles/posts");
-$scope.articles = $firebaseArray(sync);
+//$scope.articles = $firebaseArray(sync.startAt($scope.username).endAt($scope.username));
+$scope.articles = $firebaseArray(sync.startAt($scope.username).endAt($scope.username));
+
 
 // Passing title and post to the edit modal for editing a post
 
